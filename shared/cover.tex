@@ -1,0 +1,31 @@
+% ===================== 封面（共用；字段见 shared/preamble.tex，各篇 main.tex 覆盖） =====================
+% 版式参照《实验报告封面格式.doc》：校名小一、学期四号、课程名/“实验报告”小二、信息栏小三
+\begin{titlepage}
+  \thispagestyle{empty}
+  \centering
+  \vspace*{2.5cm}
+
+  {\zihao{1}\songti 天津工业大学\par}
+  \vspace{0.6cm}
+  {\zihao{4}\songti \semester\par}
+  \vspace{1.8cm}
+
+  {\zihao{-2}\heiti \course\par}
+  \vspace{0.8cm}
+  {\zihao{-2}\heiti 实验报告\par}
+  \vspace{4cm}
+
+  {\zihao{-3}\songti
+  \renewcommand{\arraystretch}{1.9}
+  \begin{tabular}{l}
+    \coverline{题\hfill 目}{\labtitle} \\
+    \coverline{班\hfill 级}{\classname} \\
+    \coverline{学\hfill 号}{\studentid} \\
+    \coverline{姓\hfill 名}{\studentname} \\
+    \coverline{成\hfill 绩}{\score} \\
+  \end{tabular}\par}
+
+  \vfill
+  {\zihao{-3}\songti \hfill \reportdate \hspace{3em}\par}
+  \vspace{1.5cm}
+\end{titlepage}

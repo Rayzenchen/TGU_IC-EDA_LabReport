@@ -1,0 +1,9 @@
+% Overleaf 默认编译项目根目录的 main.tex。
+% 换一篇报告时，只改最后一行，指向那篇报告的 main.tex。
+% 编译器必须是 XeLaTeX（Overleaf：菜单 → Settings → Compiler），详见 README.md。
+\RequirePackage{iftex}
+\ifXeTeX\else
+  \errmessage{Compiler must be XeLaTeX. On Overleaf: Menu -> Settings -> Compiler -> XeLaTeX, then recompile. See README.md}
+  \expandafter\stop
+\fi
+\input{实验0_模板示例/main.tex}

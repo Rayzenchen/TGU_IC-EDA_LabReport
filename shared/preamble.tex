@@ -1,0 +1,138 @@
+% ===================================================================
+%  天津工业大学 · 集成电路EDA 实验报告模板 · 共用导言区
+%  模板作者：陈睿晢（物理2403）  许可：MIT，转发、修改请保留本署名
+%
+%  用法（各篇 <报告文件夹>/main.tex，路径一律从项目根目录写）：
+%    \documentclass[zihao=-4,a4paper,UTF8,fontset=fandol]{ctexart}
+%    \input{shared/preamble.tex}
+%    \renewcommand{\docdir}{<报告文件夹>}    % 本篇文件夹，\labfig 据此找图
+%    \renewcommand{\labtitle}{<实验题目>}    % 以及 \classname 等报告信息
+%    \begin{document}
+%    \input{shared/cover.tex}
+%    \input{<报告文件夹>/sections/01_objective.tex} …
+%  编译器必须是 XeLaTeX（Overleaf：菜单 → Settings → Compiler），详见 README.md。
+%  fontset=fandol：统一用 Fandol 字体，Overleaf 和本地编译效果一致。
+% ===================================================================
+
+% ===================== 编译器检查 =====================
+% 不是 XeLaTeX 时直接停下并提示（提示用英文，避免 pdfLaTeX 下中文报错乱码）。
+\RequirePackage{iftex}
+\ifXeTeX\else
+  \PackageError{preamble}{Compiler must be XeLaTeX. On Overleaf: Menu -> Settings -> Compiler -> XeLaTeX, then recompile. See README.md}{}
+  \expandafter\stop
+\fi
+
+% ===================== 生僻字补字 =====================
+% Fandol（Overleaf 默认中文字体）缺部分生僻字（如「晢」U+6662），
+% 缺字时自动改用 Noto Serif CJK SC 的同一字形；其余字仍用 Fandol。
+\xeCJKsetup{AutoFallBack=true}
+\IfFontExistsTF{Noto Serif CJK SC}{%
+  \setCJKfallbackfamilyfont{\CJKrmdefault}[BoldFont=* Bold]{Noto Serif CJK SC}%
+  \setCJKfallbackfamilyfont{zhsong}[BoldFont=* Bold]{Noto Serif CJK SC}%
+  \setCJKfallbackfamilyfont{zhhei}[UprightFont=* Bold]{Noto Serif CJK SC}%
+  \setCJKfallbackfamilyfont{\CJKsfdefault}[UprightFont=* Bold]{Noto Serif CJK SC}%
+}{}
+
+% ===================== 宏包 =====================
+\usepackage[a4paper,left=2.8cm,right=2.6cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+% ===================== 报告信息（各篇 main.tex 用 \renewcommand 覆盖） =====================
+\newcommand{\docdir}{shared/skeleton}
+\newcommand{\semester}{2026-2027学年第一学期}
+\newcommand{\course}{集成电路EDA}
+\newcommand{\labtitle}{}
+\newcommand{\classname}{}
+\newcommand{\studentid}{}
+\newcommand{\studentname}{}
+\newcommand{\score}{}
+\newcommand{\reportdate}{2026年\qquad 月\qquad 日}
+
+% ===================== 格式设置 =====================
+\setstretch{1.4}
+\setlength{\parindent}{2em}
+
+% 一级标题：一、二、三、四、
+\ctexset{
+  section = {
+    name = {,、},
+    number = \chinese{section},
+    format = \zihao{4}\heiti\raggedright,
+    aftername = {},
+    beforeskip = 1.2ex plus .2ex,
+    afterskip = 0.8ex plus .2ex,
+  },
+  subsection = {
+    name = {第,部分：},
+    number = \chinese{subsection},
+    format = \zihao{-4}\heiti\raggedright,
+    aftername = {},
+    beforeskip = 1ex,
+    afterskip = 0.6ex,
+  },
+  subsubsection = {
+    format = \zihao{-4}\bfseries\raggedright,
+    beforeskip = 0.8ex,
+    afterskip = 0.4ex,
+  },
+}
+
+\captionsetup{font=small,labelsep=quad}
+\captionsetup[figure]{name=图}
+\captionsetup[table]{name=表}
+\setlist{nosep,leftmargin=2em}
+
+% 终端命令代码块样式
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!8},
+  frame=single,
+  rulecolor=\color{gray!40},
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  xleftmargin=1em,
+  xrightmargin=1em,
+}
+\lstdefinestyle{shell}{language=bash}
+
+% 页眉页脚
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \course\ 实验报告}
+\fancyhead[R]{\small \labtitle}
+\fancyfoot[C]{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% 插图命令：\docdir/figs/ 下图片存在则插入，否则显示占位框
+% 用法：\labfig[宽度]{文件名}{图题}{标签}
+\newcommand{\labfig}[4][0.85\textwidth]{%
+  \begin{figure}[H]
+    \centering
+    \IfFileExists{\docdir/figs/#2}{%
+      \includegraphics[width=#1]{\docdir/figs/#2}%
+    }{%
+      \fbox{\parbox[c][0.3\textheight][c]{#1}{\centering\color{gray}
+        待插入截图：\texttt{figs/\detokenize{#2}}}}%
+    }
+    \caption{#3}
+    \label{#4}
+  \end{figure}
+}
+
+% 封面下划线填写栏（填写内容在下划线上居中）
+\newcommand{\coverline}[2]{%
+  \makebox[4em]{#1}：\underline{\makebox[16em][c]{#2}}%
+}

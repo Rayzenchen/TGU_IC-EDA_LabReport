@@ -1,0 +1,26 @@
+% 示例报告入口：演示模板里每种写法各一次，可直接编译看效果。
+% 写自己的报告请从 shared/skeleton/ 复制，步骤见 README.md。
+\documentclass[zihao=-4,a4paper,UTF8,fontset=fandol]{ctexart}
+\input{shared/preamble.tex}
+
+% ===================== 报告信息 =====================
+\renewcommand{\docdir}{实验0_模板示例}
+\renewcommand{\labtitle}{模板示例}
+\renewcommand{\classname}{}
+\renewcommand{\studentid}{}
+\renewcommand{\studentname}{}
+% \renewcommand{\reportdate}{2026年10月1日}
+
+\begin{document}
+
+% ===================== 封面 =====================
+\input{shared/cover.tex}
+
+% ===================== 正文 =====================
+\setcounter{page}{1}
+\input{实验0_模板示例/sections/01_objective.tex}
+\input{实验0_模板示例/sections/02_procedure.tex}
+\input{实验0_模板示例/sections/03_extension.tex}
+\input{实验0_模板示例/sections/04_summary.tex}
+
+\end{document}

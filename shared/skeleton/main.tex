@@ -1,0 +1,29 @@
+% 单篇报告入口（空白骨架）。新写一次实验报告时：
+%   1. 把 shared/skeleton/ 整个复制成 实验N_题目/（例：实验2_反相器原理图）；
+%   2. 把本文件里所有 shared/skeleton 替换成新文件夹名（\docdir 和四个 \input 都要改），删掉这段注释；
+%   3. 填写下面的报告信息；
+%   4. 把项目根目录 main.tex 的那一行改成 \input{实验N_题目/main.tex}。
+\documentclass[zihao=-4,a4paper,UTF8,fontset=fandol]{ctexart}
+\input{shared/preamble.tex}
+
+% ===================== 报告信息 =====================
+\renewcommand{\docdir}{shared/skeleton}
+\renewcommand{\labtitle}{实验题目}
+\renewcommand{\classname}{}
+\renewcommand{\studentid}{}
+\renewcommand{\studentname}{}
+% \renewcommand{\reportdate}{2026年10月1日}
+
+\begin{document}
+
+% ===================== 封面 =====================
+\input{shared/cover.tex}
+
+% ===================== 正文 =====================
+\setcounter{page}{1}
+\input{shared/skeleton/sections/01_objective.tex}
+\input{shared/skeleton/sections/02_procedure.tex}
+\input{shared/skeleton/sections/03_extension.tex}
+\input{shared/skeleton/sections/04_summary.tex}
+
+\end{document}

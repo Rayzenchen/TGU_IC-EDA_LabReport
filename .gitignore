@@ -1,0 +1,23 @@
+# 编译产物，不要提交
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+output.pdf
+*.pdf
+!figs/**/*.pdf
+
+.DS_Store

@@ -1,0 +1,47 @@
+\section{实验步骤}
+
+% 每个步骤一个 \subsection，显示为「第一部分：…」；需要时再分 \subsubsection。
+
+% ------------------------------------------------------------
+\subsection{终端命令}
+
+终端命令放在 \texttt{lstlisting} 里，长命令会自动换行：
+\begin{lstlisting}[style=shell]
+cd ~/CMOSedu
+virtuoso &
+\end{lstlisting}
+
+行内的命令、文件名用 \texttt{\textbackslash texttt\{\}}，比如 \texttt{testfile.txt}。
+
+% ------------------------------------------------------------
+\subsection{插入截图}
+
+截图放进本报告的 \texttt{figs/} 文件夹，再用 \texttt{\textbackslash labfig} 插入。图片还没放进去时，这里显示灰色占位框，编译不报错；放进同名文件后自动换成图片：
+\begin{lstlisting}
+\labfig{fig1_example.png}{图题}{fig:example}
+\labfig[0.5\textwidth]{fig2_small.png}{窄图可以指定宽度}{fig:small}
+\end{lstlisting}
+
+\labfig{fig1_example.png}{示例截图（占位）}{fig:example}
+
+正文里用 \texttt{\textbackslash ref} 引用图号：如图~\ref{fig:example} 所示。
+
+% ------------------------------------------------------------
+\subsection{表格}
+
+\begin{table}[H]
+  \centering
+  \caption{常用 Linux 命令（示例）}
+  \label{tab:cmds}
+  \begin{tabular}{l>{\raggedright\arraybackslash}p{0.6\textwidth}}
+    \toprule
+    命令 & 作用 \\
+    \midrule
+    \texttt{pwd} & 显示当前目录 \\
+    \texttt{ls -la} & 列出目录内容，含隐藏文件和详细信息 \\
+    \texttt{mkdir <dir>} & 新建文件夹 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+表格同样可以引用：见表~\ref{tab:cmds}。
