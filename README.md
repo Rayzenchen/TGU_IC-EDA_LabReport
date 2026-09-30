@@ -1,6 +1,6 @@
 # 天津工业大学 · 集成电路EDA 实验报告 LaTeX 模板
 
-模板作者：陈睿晢（物理2403）。MIT 许可，转发、修改请保留署名。
+模板作者：陈睿晢。MIT 许可，转发、修改请保留署名。
 
 最新版：<https://github.com/Rayzenchen/tjpu-ic-eda-lab-report>（右上角 Code → Download ZIP）
 
