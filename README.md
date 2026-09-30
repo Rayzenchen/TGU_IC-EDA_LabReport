@@ -2,6 +2,8 @@
 
 模板作者：陈睿晢。MIT 许可，转发、修改请保留署名。
 
+版本：V-1.0.0
+
 最新版：<https://github.com/Rayzenchen/tjpu-ic-eda-lab-report>（右上角 Code → Download ZIP）
 
 封面按学校《实验报告封面格式》排版，正文固定四节：实验目的、实验步骤、扩展内容、实验总结。一个项目可以写完整个学期的所有实验报告。
